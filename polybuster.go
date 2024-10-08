@@ -104,10 +104,10 @@ if help {
 func printHelp() {
 	fmt.Println("Usage:")
 	fmt.Println("  -h        Show help information")
-	fmt.Println("  -u <url>  Specify the URL to scan (must end with /)")
+	fmt.Println("  -u <url>  Specify the URL to scan")
 	fmt.Println("  -w <path> Specify the path to the wordlist file")
 	fmt.Println()
-	fmt.Println("If no wordlist is provided, the program will attempt to download a default wordlist.")
+	fmt.Println("If no wordlist is provided, the program will attempt to download a default wordlist. (directory-list-2.3-medium.txt from github)")
 	fmt.Println("Example:")
 	fmt.Println("  go run main.go -u https://example.com/ -w /path/to/wordlist.txt")
 }
