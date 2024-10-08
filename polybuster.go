@@ -16,11 +16,14 @@ const urlPlaylist string = "https://raw.githubusercontent.com/danielmiessler/Sec
 func main() {
 	var url string
 	var wordlist string
-
+	var help bool
+	flag.BoolVar(&help, "h", "false", "ask for help")
 	flag.StringVar(&url, "u", "", "url link, end with /")
 	flag.StringVar(&wordlist, "w", "", "path of wordlist")
 	flag.Parse()
-
+if help {
+	printhelp()
+}
 
   _, err := os.Stat("seclist_wordlist.txt")
 	if err == nil {
@@ -97,3 +100,15 @@ func main() {
   fmt.Println("no more words in the playlist :3")
 
 }
+
+func printHelp() {
+	fmt.Println("Usage:")
+	fmt.Println("  -h        Show help information")
+	fmt.Println("  -u <url>  Specify the URL to scan (must end with /)")
+	fmt.Println("  -w <path> Specify the path to the wordlist file")
+	fmt.Println()
+	fmt.Println("If no wordlist is provided, the program will attempt to download a default wordlist.")
+	fmt.Println("Example:")
+	fmt.Println("  go run main.go -u https://example.com/ -w /path/to/wordlist.txt")
+}
+
